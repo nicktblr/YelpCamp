@@ -1,35 +1,65 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
 
+var express    	= require("express"),
+    app        	= express(),
+    bodyParser 	= require("body-parser"),
+    mongoose   	= require("mongoose"),
+    Campground 	= require("./models/campground"),
+    Comment 	= require("./models/comment"),
+    seedDB		= require("./seeds");
+
+seedDB();
+
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.set("view engine", "ejs");
 
-var campgrounds = [
-		{name: "Salmon Swamp", image: "https://static1.squarespace.com/static/57a33100579fb3f47b0e4f5f/57c33c569f745643297c9a2b/57c33c568419c2d24d5e3839/1472412848948/Campsite7.jpg"},
-		{name: "Spooky Lake", image: "https://media-cdn.tripadvisor.com/media/photo-s/05/c6/94/80/red-squirrel-campsite.jpg"},
-		{name: "Sylvan Lake", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKTF7IdQ_DXtz-NbJRJuebNfNhx7nhCBkqJi6y_5ENgNQeLB_f"}
-	];
+mongoose.connect("mongodb://localhost/yelp_camp");
 
 app.get("/", function(req, res){
 	res.render("landing");
 });
 
 app.get('/campgrounds', function(req, res){
-	res.render("campgrounds", {campgrounds: campgrounds});
+	    Campground.find({}, function(err, campgrounds){
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("campgrounds/index", {campgrounds: campgrounds});
+        }
+    });
 });
 
 app.post('/campgrounds', function(req, res){
 	var name = req.body.name;
 	var image = req.body.image;
-	var newCampground = {name: name, image: image};
-	campgrounds.push(newCampground);
-	res.redirect('/campgrounds');
+	var description = req.body.description;
+	var newCampground = {name: name, image: image, description: description};
+	Campground.create(newCampground, function(err, newlyCreated){
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/index");
+        }
+    });
 });
 
 app.get('/campgrounds/new', function(req, res){
-	res.render('new');
+	res.render('campgrounds/new');
+});
+
+app.get("/campgrounds/:id", function(req,res){
+    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("campgrounds/show", {camp: foundCampground});
+        }
+    });
+});
+
+app.get("/campgrounds/:id/comments/new", function(req, res){
+    res.render("comments/new");
 });
 
 app.listen(3000, function(){
