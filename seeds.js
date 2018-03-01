@@ -12,18 +12,18 @@ var data =
 		{
 			name: "Sylvan Lake", 
 			image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKTF7IdQ_DXtz-NbJRJuebNfNhx7nhCBkqJi6y_5ENgNQeLB_f",
-			description: "By Red Deer, more or less.",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis condimentum elit. Sed bibendum pulvinar ante a tincidunt. In eget purus at orci congue auctor. Curabitur egestas congue magna ut venenatis. Integer eros libero, luctus ut aliquet a, bibendum volutpat arcu. Etiam id turpis nibh. Sed porta nisl libero, at consequat velit efficitur dictum. Aliquam eget maximus justo. Sed ac tellus orci. Nullam ex orci, tempor vel blandit eget, interdum in ante.",
 		},
 		{
 			name: "Green Hill", 
 			image: "https://bearlake.org/wp-content/uploads/cache/images/garden-city-logan-campgrounds/garden-city-logan-campgrounds-987998613.jpg",
-			description: "From Sonic.",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis condimentum elit. Sed bibendum pulvinar ante a tincidunt. In eget purus at orci congue auctor. Curabitur egestas congue magna ut venenatis. Integer eros libero, luctus ut aliquet a, bibendum volutpat arcu. Etiam id turpis nibh. Sed porta nisl libero, at consequat velit efficitur dictum. Aliquam eget maximus justo. Sed ac tellus orci. Nullam ex orci, tempor vel blandit eget, interdum in ante.",
 
 		},
 		{
 			name: "Horseshoe Bay", 
 			image: "https://bearlake.org/wp-content/uploads/cache/images/bear-lake-koa-campground/bear-lake-koa-campground-2672047940.jpg",
-			description: "Down by the bay.",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis condimentum elit. Sed bibendum pulvinar ante a tincidunt. In eget purus at orci congue auctor. Curabitur egestas congue magna ut venenatis. Integer eros libero, luctus ut aliquet a, bibendum volutpat arcu. Etiam id turpis nibh. Sed porta nisl libero, at consequat velit efficitur dictum. Aliquam eget maximus justo. Sed ac tellus orci. Nullam ex orci, tempor vel blandit eget, interdum in ante.",
 		}
 	];
 
