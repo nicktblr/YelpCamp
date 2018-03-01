@@ -1,4 +1,4 @@
-<% include partials/header %>
+<% include ../partials/header %>
 
 <p><%= camp.name %></p>
 
@@ -6,9 +6,13 @@
 
 <p><%= camp.description %></p>
 
+<p>
+	<a class="btn btn-success" href="/campgrounds/<%= camp.id %>/comments/new">Add New Comment</a>
+</p>
+
 <% camp.comments.forEach(function(comment) { %>
 	<p>
 		<strong><%= comment.author %></strong> - <%= comment.text %>
 	</p>
 <% }); %>
-<% include partials/footer %>
+<% include ../partials/footer %>
